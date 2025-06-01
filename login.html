@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login to Galaxy TV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="auth-page">
+  <div class="container">
+    <h1>Login to Galaxy TV</h1>
+    <form id="loginForm">
+      <div class="input-field">
+        <input type="text" id="username" placeholder="Username" required>
+      </div>
+      <div class="input-field">
+        <input type="password" id="password" placeholder="Password" required>
+      </div>
+      <button type="button" class="btn" onclick="login()">Login</button>
+    </form>
+    <div class="toggle-link">
+      Don't have an account? <a href="signup.html">Sign Up</a>
+    </div>
+    <a href="index.html" class="login-link home-btn">Home</a>
+  </div>
+
+  <script>
+    function login() {
+      const username = $("#username").val();
+      const password = $("#password").val();
+
+      if (!username || !password) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      $.ajax({
+        url: "login.php",
+        type: "POST",
+        data: { username, password },
+        success: function (response) {
+          if (response === "success") {
+            window.location.href = "index.html";
+          } else {
+            alert("Invalid username or password.");
+          }
+        },
+        error: function () {
+          alert("An error occurred during login. Please try again.");
+        },
+      });
+    }
+
+    // Handle Enter key press
+    $("#username, #password").on("keypress", function (e) {
+      if (e.which === 13) {
+        login();
+      }
+    });
+  </script>
+</body>
+</html>

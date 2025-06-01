@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your Account</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="auth-page">
+  <div class="container">
+    <h1>Create Your Account</h1>
+    <form id="signupForm">
+      <div class="input-field">
+        <input type="text" id="username" placeholder="Username" required>
+      </div>
+      <div class="input-field">
+        <input type="email" id="email" placeholder="Email" required>
+      </div>
+      <div class="input-field">
+        <input type="password" id="password" placeholder="Password" required>
+      </div>
+      <button type="button" class="btn" onclick="signup()">Sign Up</button>
+    </form>
+    <div class="toggle-link">
+      Already have an account? <a href="login.html">Login</a>
+    </div>
+    <a href="index.html" class="login-link home-btn">Home</a>
+  </div>
+
+  <script>
+    function signup() {
+      const username = $("#username").val();
+      const email = $("#email").val();
+      const password = $("#password").val();
+
+      if (!username || !email || !password) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      $.ajax({
+        url: "signup.php",
+        type: "POST",
+        data: { username, email, password },
+        success: function (response) {
+          if (response === "success") {
+            alert("Registration successful! Please log in.");
+            window.location.href = "login.html";
+          } else if (response === "exists") {
+            alert("Username already exists.");
+          } else {
+            alert("An error occurred during signup. Please try again.");
+          }
+        },
+        error: function () {
+          alert("An error occurred during signup. Please try again.");
+        },
+      });
+    }
+
+    // Handle Enter key press
+    $("#username, #email, #password").on("keypress", function (e) {
+      if (e.which === 13) {
+        signup();
+      }
+    });
+  </script>
+</body>
+</html>

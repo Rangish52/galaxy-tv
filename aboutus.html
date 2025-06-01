@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MADE MY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .about-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    
+    .about-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .about-header h1 {
+      font-size: 3rem;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+    }
+    
+    .about-header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .feature-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 50px 0;
+    }
+    
+    .feature-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--hover-glow);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+    }
+    
+    .made-by-section {
+      text-align: center;
+      margin: 60px 0;
+      padding: 40px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+    }
+    
+    .made-by-content {
+      font-size: 1.5rem;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: bold;
+    }
+
+    /* Home button style matching login button */
+    .home-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease-in-out;
+    }
+
+    .home-link:hover {
+      transform: scale(1.05);
+      box-shadow: var(--hover-glow);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="home-link">Home</a>
+    <span>ABOUT US</span>
+    <a href="login.html" class="login-link">Login</a>
+  </header>
+
+  <div class="about-container">
+    <section class="about-header">
+      <h1>Revolutionizing Television Experience</h1>
+      <p>Galaxy TV is a cutting-edge platform that brings together the best television channels from around the world, organized intuitively and accessible with just a few clicks. Our mission is to simplify channel discovery while providing a visually stunning user experience.</p>
+    </section>
+
+    <section class="feature-section">
+      <div class="feature-card">
+        <div class="feature-icon">📺</div>
+        <h2>Extensive Channel Library</h2>
+        <p>Access hundreds of channels across multiple categories including Entertainment, News, Sports, Music, and Kids programming.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h2>Smart Search</h2>
+        <p>Find your favorite channels instantly with our powerful search functionality that works by channel name or number.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🚀</div>
+        <h2>Modern Interface</h2>
+        <p>Enjoy our space-themed, responsive design that works seamlessly across all your devices.</p>
+      </div>
+    </section>
+
+    <section class="made-by-section">
+      <h2>Made By</h2>
+      <div class="made-by-content">
+        Rangish S, 2 year AI&DS
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Galaxy TV. All Rights Reserved.
+  </footer>
+</body>
+</html>

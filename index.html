@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="channelApp">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galaxy TV - Channel Search</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body ng-controller="ChannelController">
+  <header>
+    <span>Galaxy TV - Channel Search</span>
+    <div style="float: right;">
+      <a href="channels.html" class="login-link">List of Channels</a>
+      <a href="aboutus.html" class="login-link">About Us</a>
+      <a href="login.html" class="login-link">Login</a>
+    </div>
+  </header>
+
+  <div class="search-container">
+    <input type="text" ng-model="searchText" placeholder="Search for a channel by name or number..." />
+  </div>
+
+  <div class="categories-container">
+    <div class="category" ng-repeat="category in categories">
+      <h2>{{ category.name }}</h2>
+      <ul class="channels">
+        <li ng-repeat="channel in category.channels | filter:searchText">
+          <a href="{{ channel.url }}" target="_blank">{{ channel.number }} - {{ channel.name }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Galaxy TV. All Rights Reserved.
+  </footer>
+</body>
+</html>
